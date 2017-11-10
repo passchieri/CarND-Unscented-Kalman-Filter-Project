@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include "tools.h"
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
@@ -28,6 +29,9 @@ public:
   ///* state covariance matrix
   MatrixXd P_;
 
+  ///* Augmented Sigma points matrix
+  MatrixXd Xsig_aug_;
+  
   ///* predicted sigma points matrix
   MatrixXd Xsig_pred_;
 
@@ -63,10 +67,25 @@ public:
 
   ///* Augmented state dimension
   int n_aug_;
+  
+  ///* number of sigma points
+  int n_sigma;
 
   ///* Sigma point spreading parameter
   double lambda_;
 
+  
+  ///* number of radar observables
+  const int n_radar=3;
+  
+  ///* number of laser observables
+  const int n_laser=2;
+  ///* Noise matrix of radar
+  MatrixXd R_radar;
+  
+  ///* Noise matrix of lidar
+  MatrixXd R_laser;
+  Tools tools;
 
   /**
    * Constructor
@@ -77,7 +96,8 @@ public:
    * Destructor
    */
   virtual ~UKF();
-
+  
+  
   /**
    * ProcessMeasurement
    * @param meas_package The latest measurement data of either radar or laser
@@ -91,6 +111,7 @@ public:
    */
   void Prediction(double delta_t);
 
+  void Initialize(MeasurementPackage meas_package);
   /**
    * Updates the state and the state covariance matrix using a laser measurement
    * @param meas_package The measurement at k+1
@@ -102,6 +123,10 @@ public:
    * @param meas_package The measurement at k+1
    */
   void UpdateRadar(MeasurementPackage meas_package);
+  
+private:
+  void GenerateAugmentedSigmaPoints();
+  void SigmaPointPrediction(double dt);
 };
 
 #endif /* UKF_H */
