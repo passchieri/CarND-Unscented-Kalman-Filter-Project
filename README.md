@@ -1,4 +1,21 @@
-# Unscented Kalman Filter Project Starter Code
+# Unscented Kalman Filter
+**Igor Passchier**
+
+igor.passchier@tassinternational.com
+
+## Introduction
+This is the project submission of the project on Unscented Kalman Filters. The remainder of this readme follows the project [rubric](https://review.udacity.com/#!/rubrics/783/view), and finishing with some additions.
+
+## Compiling
+
+## Accuracy
+
+## Following the correct algorithm
+
+## Code efficiency
+
+## Additional work
+
 Self-Driving Car Engineer Nanodegree Program
 
 In this project utilize an Unscented Kalman Filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower that the tolerance outlined in the project rubric. 
