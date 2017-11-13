@@ -75,9 +75,9 @@ From these scans, I determined the optimum values, std_a = 0.4 (m/s^2), and std_
 ### Reliability check.
 To see whether the predictions are reliable and the sensor predictions realistic, I have calculated the NIS values and compared them with the 95% interval values for 2 (lidar) and 3 (radar) independent measurements.
 
-![epsilon laser](analysis/epsilon laser.png)
+![epsilon laser](analysis/epsilon_laser.png)
 
-![epsilon radar](analysis/epsilon radar.png)
+![epsilon radar](analysis/epsilon_radar.png)
 
 These figures show a few peaks above the 95% interval limit. In bulk, this looks reasonable, although a bit more peaks above the limit would be expected. Probably, the radar and lidar data are a bit more accurate than suggested by the provided standard deviations.
 
