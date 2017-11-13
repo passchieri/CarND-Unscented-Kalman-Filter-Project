@@ -7,10 +7,34 @@ igor.passchier@tassinternational.com
 This is the project submission of the project on Unscented Kalman Filters. The remainder of this readme follows the project [rubric](https://review.udacity.com/#!/rubrics/783/view), and finishing with some additions.
 
 ## Compiling
+The project is based on the starter code provided. The CMakelists.txt has been extended to include the additional source files, but the structure is unchanged. The code should compile on any system, but has been checked on MacOS with command line tools and with XCode.
+
+To build and run:
+1. mkdir build
+2. cd build
+3. cmake ..
+4. make
+5. ./UnscentedKF
 
 ## Accuracy
+The project has been developed and tested with the "obj_pose-laser-radar-synthetic-input.txt", and should have RMSE values less than  [.09, .10, .40, .30].
+The final RMSE values obtained are [0.062	0.086	0.147	0.164], so meeting the criteria.
 
 ## Following the correct algorithm
+### Follow the algoritmn process
+The overall process flow is handled in [main.cpp](src/main.cpp) line 236. If a command line option is provided, the main routine will read the sensordata and ground truth data directly from the input file (line 122), while if no command line option is provided, than the input from the simulator is expected (line 147). In this way, visual feedback can be provided via the simulator, while parameter tuning can be done much faster with the direct input. Processing the sensor input is done on line 35, and when the input line is processed, the actual filter is called on line 88.
+
+All process state variables are stored in a new class State, implemented in [state.cpp](src/state.cpp).
+
+Relevant output is written to datafiles for further processing, and RMSE values are directly provided on standard out.
+
+
+
+### Handle the first measurement appropriately
+
+### First predict, then update
+
+### Handle laser and radar measurements
 
 ## Code efficiency
 
