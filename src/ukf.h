@@ -87,6 +87,11 @@ public:
   MatrixXd R_laser;
   Tools tools;
 
+  ///* NIS radar
+  double NIS_Radar;
+  
+  ///* NIS lidar
+  double NIS_Laser;
   /**
    * Constructor
    */
@@ -102,7 +107,7 @@ public:
    * ProcessMeasurement
    * @param meas_package The latest measurement data of either radar or laser
    */
-  void ProcessMeasurement(MeasurementPackage meas_package);
+  void ProcessMeasurement(MeasurementPackage &meas_package);
 
   /**
    * Prediction Predicts sigma points, the state, and the state covariance
@@ -111,18 +116,18 @@ public:
    */
   void Prediction(double delta_t);
 
-  void Initialize(MeasurementPackage meas_package);
+  void Initialize(MeasurementPackage &meas_package);
   /**
    * Updates the state and the state covariance matrix using a laser measurement
    * @param meas_package The measurement at k+1
    */
-  void UpdateLidar(MeasurementPackage meas_package);
+  void UpdateLidar(MeasurementPackage &meas_package);
 
   /**
    * Updates the state and the state covariance matrix using a radar measurement
    * @param meas_package The measurement at k+1
    */
-  void UpdateRadar(MeasurementPackage meas_package);
+  void UpdateRadar(MeasurementPackage &meas_package);
   
 private:
   void GenerateAugmentedSigmaPoints();
