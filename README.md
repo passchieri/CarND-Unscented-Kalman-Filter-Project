@@ -64,6 +64,7 @@ The tuning has been done in 2 steps.
 ![tune both](analysis/tune_both.png)
 
 From this, it is clear that the optimum for both parameters is about 1. 
+
 2. Around these optima, I have further tuned both parameters individually, see the 2 figures below.
 
 ![tune a](analysis/tune_a.png)
